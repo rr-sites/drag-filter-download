@@ -43,6 +43,66 @@ const filterOptions: Array<{
     name: 'High Contrast',
     description: 'Bold blacks and bright whites',
     color: 'bg-gradient-to-r from-gray-800 to-gray-600'
+  },
+  {
+    id: 'dramatic',
+    name: 'Dramatic',
+    description: 'Deep shadows and intense mood',
+    color: 'bg-gradient-to-r from-purple-800 to-indigo-900'
+  },
+  {
+    id: 'soft',
+    name: 'Soft',
+    description: 'Gentle tones and dreamy feel',
+    color: 'bg-gradient-to-r from-pink-300 to-purple-400'
+  },
+  {
+    id: 'vibrant',
+    name: 'Vibrant',
+    description: 'Boosted saturation and pop',
+    color: 'bg-gradient-to-r from-green-500 to-blue-500'
+  },
+  {
+    id: 'moody',
+    name: 'Moody',
+    description: 'Dark atmospheric tones',
+    color: 'bg-gradient-to-r from-slate-700 to-gray-800'
+  },
+  {
+    id: 'bright',
+    name: 'Bright',
+    description: 'Clean and airy feel',
+    color: 'bg-gradient-to-r from-white to-gray-200'
+  },
+  {
+    id: 'matte',
+    name: 'Matte',
+    description: 'Lifted blacks and faded look',
+    color: 'bg-gradient-to-r from-stone-400 to-slate-500'
+  },
+  {
+    id: 'film',
+    name: 'Film',
+    description: 'Classic analog film emulation',
+    color: 'bg-gradient-to-r from-orange-400 to-red-500'
+  },
+  {
+    id: 'sunset',
+    name: 'Sunset',
+    description: 'Golden and orange tones',
+    color: 'bg-gradient-to-r from-yellow-400 to-orange-500'
+  },
+  {
+    id: 'arctic',
+    name: 'Arctic',
+    description: 'Cool blue and white tones',
+    color: 'bg-gradient-to-r from-cyan-400 to-blue-300'
+  },
+  {
+    id: 'sepia',
+    name: 'Sepia',
+    description: 'Classic brown monochrome',
+    color: 'bg-gradient-to-r from-amber-800 to-yellow-900'
   }
 ];
 

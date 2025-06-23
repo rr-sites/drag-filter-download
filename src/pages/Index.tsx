@@ -89,7 +89,7 @@ const Index = () => {
   }, [processedImages, selectedFilter, toast]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-yellow-50 to-amber-100">
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center mb-12">
@@ -179,15 +179,15 @@ const Index = () => {
 
         {/* Instructions */}
         {originalImages.length === 0 && (
-          <Card className="p-8 text-center bg-gradient-to-r from-blue-50 to-indigo-50 border-blue-200">
-            <Upload className="h-12 w-12 text-blue-500 mx-auto mb-4" />
-            <h3 className="text-lg font-semibold text-blue-900 mb-2">
+          <Card className="p-8 text-center bg-gradient-to-r from-yellow-50 to-amber-50 border-yellow-200">
+            <Upload className="h-12 w-12 text-amber-500 mx-auto mb-4" />
+            <h3 className="text-lg font-semibold text-amber-900 mb-2">
               Get Started
             </h3>
-            <p className="text-blue-700 mb-4">
+            <p className="text-amber-700 mb-4">
               Drag and drop your images above or click to select files
             </p>
-            <div className="flex flex-wrap justify-center gap-2 text-sm text-blue-600">
+            <div className="flex flex-wrap justify-center gap-2 text-sm text-amber-600">
               <Badge variant="outline">JPG</Badge>
               <Badge variant="outline">PNG</Badge>
               <Badge variant="outline">WebP</Badge>
