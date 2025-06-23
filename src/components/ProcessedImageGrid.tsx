@@ -1,7 +1,6 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Badge } from '@/components/ui/badge';
 import { Download } from 'lucide-react';
 import { ProcessedImage } from '@/types/image-processing';
 
@@ -33,43 +32,31 @@ const ProcessedImageGrid = ({ images }: ProcessedImageGridProps) => {
   };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
       {images.map((image) => (
-        <div
-          key={image.id}
-          className="group relative bg-white rounded-lg shadow-sm border border-slate-200 overflow-hidden hover:shadow-md transition-shadow duration-200"
-        >
-          <div className="aspect-square relative overflow-hidden bg-slate-100">
+        <div key={image.id} className="group relative">
+          <div className="aspect-square bg-gray-100 rounded overflow-hidden">
             <img
               src={getImageUrl(image)}
               alt={image.originalName}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+              className="w-full h-full object-cover"
               loading="lazy"
             />
             
-            {/* Overlay on hover */}
-            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200 flex items-center justify-center">
+            <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all flex items-center justify-center">
               <Button
                 size="sm"
                 onClick={() => downloadSingleImage(image)}
-                className="opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-white text-slate-700 hover:bg-slate-50"
+                className="opacity-0 group-hover:opacity-100 transition-opacity"
               >
-                <Download className="h-4 w-4 mr-1" />
-                Download
+                <Download className="h-4 w-4" />
               </Button>
             </div>
           </div>
           
-          <div className="p-3">
-            <div className="flex items-center justify-between mb-2">
-              <h3 className="font-medium text-slate-800 truncate text-sm">
-                {image.originalName}
-              </h3>
-              <Badge variant="secondary" className="text-xs capitalize">
-                {image.filter}
-              </Badge>
-            </div>
-          </div>
+          <p className="text-xs text-gray-500 mt-1 truncate capitalize">
+            {image.filter}
+          </p>
         </div>
       ))}
     </div>
