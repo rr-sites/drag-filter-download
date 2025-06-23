@@ -8,11 +8,14 @@ import FilterSelector from "@/components/FilterSelector";
 import ProcessedImageGrid from "@/components/ProcessedImageGrid";
 import { ProcessedImage, LUTFilter } from "@/types/image-processing";
 import { applyLUTFilter } from "@/utils/imageProcessing";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 
 const Index = () => {
   const [originalImages, setOriginalImages] = useState<File[]>([]);
   const [processedImages, setProcessedImages] = useState<ProcessedImage[]>([]);
   const [selectedFilter, setSelectedFilter] = useState<LUTFilter>("normal");
+  const [replaceBackground, setReplaceBackground] = useState(false);
   const [isProcessing, setIsProcessing] = useState(false);
   const [processingProgress, setProcessingProgress] = useState(0);
   const { toast } = useToast();
@@ -40,7 +43,11 @@ const Index = () => {
     for (let i = 0; i < originalImages.length; i++) {
       const file = originalImages[i];
       try {
-        const processedBlob = await applyLUTFilter(file, selectedFilter);
+        const processedBlob = await applyLUTFilter(
+          file,
+          selectedFilter,
+          replaceBackground
+        );
         processed.push({
           id: `${file.name}-${Date.now()}-${i}`,
           originalName: file.name,
@@ -67,7 +74,7 @@ const Index = () => {
         description: `${processed.length} image(s) processed`,
       });
     }
-  }, [originalImages, selectedFilter, toast]);
+  }, [originalImages, selectedFilter, toast, replaceBackground]);
 
   useEffect(() => {
     // When images are first uploaded, process them with the default filter.
@@ -87,7 +94,7 @@ const Index = () => {
     processImages();
     // This effect should only run when the filter changes.
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selectedFilter]);
+  }, [selectedFilter, replaceBackground]);
 
   const downloadAllImages = useCallback(() => {
     if (processedImages.length === 0) return;
@@ -138,6 +145,18 @@ const Index = () => {
                 selectedFilter={selectedFilter}
                 onFilterChange={setSelectedFilter}
               />
+              <div className="flex items-center space-x-2 mt-4">
+                <Checkbox
+                  id="remove-bg"
+                  checked={replaceBackground}
+                  onCheckedChange={(checked) =>
+                    setReplaceBackground(Boolean(checked))
+                  }
+                />
+                <Label htmlFor="remove-bg">
+                  Remove background & replace with Datameister Yellow(tm)
+                </Label>
+              </div>
 
               <div className="mt-6 flex items-center gap-4">
                 {isProcessing && (
