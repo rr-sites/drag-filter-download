@@ -121,9 +121,12 @@ const Index = () => {
       <div className="container mx-auto px-4 py-12 max-w-6xl">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-normal mb-2">
-            Datameister Image Filter
+            Datameisterify your image
           </h1>
-          <p>Drag, filter, and download your images in a flash.</p>
+          <p>
+            Drag, choose a filter, add the Datameister Yellow(tm) background,
+            and download your images.
+          </p>
         </div>
 
         <div className="space-y-8">
@@ -154,7 +157,8 @@ const Index = () => {
                   }
                 />
                 <Label htmlFor="remove-bg">
-                  Remove background & replace with Datameister Yellow(tm)
+                  Remove background & replace with Datameister Yellow(tm) [takes
+                  a while, uses local browser resources]
                 </Label>
               </div>
 
